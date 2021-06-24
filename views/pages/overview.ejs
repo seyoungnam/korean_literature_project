@@ -1,0 +1,101 @@
+<div class="container mt-4">
+  <h3 class="mb-3">Overview</h3>
+  <!-- Nav -->
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="/overview">Total</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/overview/Fiction">Fiction</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        data-toggle="dropdown"
+        href="#"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+        >Classics</a
+      >
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/overview/Classics">Classics</a>
+        <a class="dropdown-item" href="/overview/Classics, Drama">Classics > Drama</a>
+        <a class="dropdown-item" href="/overview/Classics, Essay">Classics > Essay</a>
+        <a class="dropdown-item" href="/overview/Classics, Fiction">Classics > Fiction</a>
+        <a class="dropdown-item" href="/overview/Classics, Folk tale, Myth"
+          >Classics > Folk tale, Myth</a
+        >
+        <a class="dropdown-item" href="/overview/Classics, Folk tales">Classics, Folk tales</a>
+        <a class="dropdown-item" href="/overview/Classics, History">Classics, History</a>
+        <a class="dropdown-item" href="/overview/Classics, History, Biography"
+          >Classics, History, Biography</a
+        >
+        <a class="dropdown-item" href="/overview/Classics, History, Memoirs"
+          >Classics, History, Memoirs</a
+        >
+        <a class="dropdown-item" href="/overview/Classics, History, Travel"
+          >Classics, History, Travel</a
+        >
+        <a class="dropdown-item" href="/overview/Classics, Mixed">Classics, Mixed</a>
+        <a class="dropdown-item" href="/overview/Classics, Poem">Classics, Poem</a>
+        <a class="dropdown-item" href="/overview/Classics, Poem, Hansi">Classics, Poem, Hansi</a>
+        <a class="dropdown-item" href="/overview/Classics, Poem, Hyangga"
+          >Classics, Poem, Hyangga</a
+        >
+        <a class="dropdown-item" href="/overview/Classics, Poem, Kasa">Classics, Poem, Kasa</a>
+        <a class="dropdown-item" href="/overview/Classics, Poem, Pansori"
+          >Classics, Poem, Pansori</a
+        >
+        <a class="dropdown-item" href="/overview/Classics, Poem, Sijo">Classics, Poem, Sijo</a>
+        <a class="dropdown-item" href="/overview/Classics, Poem, Songs">Classics, Poem, Songs</a>
+        <a class="dropdown-item" href="/overview/Classics, Poem, Hyangga"
+          >Classics, Poem, Hyangga</a
+        >
+        <a class="dropdown-item" href="/overview/Classis, Folk tales, Legends"
+          >Classis, Folk tales, Legends</a
+        >
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+  </ul>
+  <!-- Nav end -->
+
+  <!-- table -->
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Author (Korean)</th>
+        <th scope="col">Translator</th>
+        <th scope="col">Publisher</th>
+        <th scope="col">Published Year</th>
+        <th scope="col">Source</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% books.forEach( (book) => {%>
+      <tr>
+        <th scope="row"><%= book.id %></th>
+        <td><%= book.genre %></td>
+        <td><%= book.work_title %></td>
+        <td><%= book.author %></td>
+        <td><%= book.author_kr %></td>
+        <td><%= book.translator %></td>
+        <td><%= book.publisher %></td>
+        <td><%= book.published %></td>
+        <td><%= book.sorce_title %></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <!-- table end -->
+</div>

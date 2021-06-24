@@ -1,0 +1,178 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-weight: 100;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  color: #37465b;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+a {
+  color: #02729e;
+}
+
+header .jumbotron {
+  height: 40vh;
+  margin-bottom: 0;
+  background: url(../images/misc/MontlakeCut-HeroMay18.jpeg) no-repeat 100% 30%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+header .navbar-brand {
+  font-size: 1.2em;
+}
+
+.navbar {
+  background-color: #8458b3;
+}
+
+.maincontent {
+  line-height: 160%;
+}
+
+.sidebar {
+  font-family: 'Roboto', sans-serif;
+  line-height: 130%;
+}
+
+.sidebar {
+  font-size: 0.9em;
+}
+
+.sidebar-title {
+  font-size: 1.3em;
+}
+
+.sidebar .sidebar-body li {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    line-height: 160%;
+  }
+  .sidebar .sidebar-title {
+    font-size: 2em;
+  }
+}
+
+.speakerslist {
+  line-height: 160%;
+}
+
+.speakerslist-title {
+  color: #a79344 !important;
+}
+
+.speakerslist-name a:hover {
+  text-decoration: none;
+  color: #494d5f;
+}
+
+.jumbotron {
+  padding: 20px 0;
+  border-radius: 0%;
+}
+
+.feedback-name {
+  font-size: 0.6em;
+  font-weight: 100;
+}
+
+.feedback-message {
+  font-weight: 100;
+  font-size: 0.9em;
+  line-height: 120%;
+  margin-top: 5px;
+}
+
+.feedback-item {
+  border-bottom: 1px solid gray;
+  padding: 8px 0;
+}
+
+.feedback-title {
+  font-weight: 400;
+  font-size: 1.1em;
+}
+
+.feedback-form label {
+  font-weight: 400;
+}
+
+.feedback-item:last-of-type {
+  border-bottom: none;
+}
+
+/**  pixgrid **/
+
+.pixgrid {
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.pixgrid img {
+  display: block;
+  padding: 5px;
+  float: left;
+  width: 33.33%;
+  border-radius: 8px;
+}
+
+@media (min-width: 500px) and (max-width: 768px) {
+  .pixgrid img {
+    width: 20%;
+  }
+}
+
+.dark-purple {
+  background-color: #8458b3;
+}
+
+.light-purple {
+  background-color: #d0bdf4;
+}
+
+.light-gray {
+  background-color: #e5eaf5;
+}
+
+.light-blue {
+  background-color: #a0d2eb;
+}
+
+.sea-blue {
+  background-color: #02729e;
+}
+
+.advancedSearchButton {
+  background-color: #8458b3;
+  border: none;
+  color: white;
+  padding: 2px 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  border-radius: 8px;
+}

@@ -1,0 +1,148 @@
+<article class="sidebar">
+  <h1 class="sidebar-title">Filter your results by...</h1>
+  <!-- <p class="sidebar-body">
+    While you attend the conference, head over to our gallery where you can check out some of the
+    work from our speakers.
+  </p> -->
+
+  <!--Accordion wrapper-->
+  <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+    <!-- Accordion card -->
+    <div class="card">
+      <!-- Card header -->
+      <div class="card-header light-gray" role="tab" id="headingOne1">
+        <a
+          data-toggle="collapse"
+          data-parent="#accordionEx"
+          href="#collapseOne1"
+          aria-expanded="true"
+          aria-controls="collapseOne1"
+        >
+          <h5 class="mb-0">
+            Genre &nbsp;
+            <i class="fas fa-angle-down rotate-icon"></i>
+          </h5>
+        </a>
+      </div>
+
+      <!-- Card body -->
+      <div
+        id="collapseOne1"
+        class="collapse show"
+        role="tabpanel"
+        aria-labelledby="headingOne1"
+        data-parent="#accordionEx"
+      >
+        <div class="card-body">
+          <% for (let i = 0; i < genres.items.length; i++) { %>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="<%= genres.items[i] %>"
+              onclick="checkboxClick(<%= genres.items[i] %>)"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              <%= genres.items[i] %>
+              <span class="badge light-blue text-dark"><%= genres.val[i] %></span>
+            </label>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- Accordion card -->
+
+    <!-- Accordion card -->
+    <div class="card">
+      <!-- Card header -->
+      <div class="card-header light-gray" role="tab" id="headingTwo2">
+        <a
+          class="collapsed"
+          data-toggle="collapse"
+          data-parent="#accordionEx"
+          href="#collapseTwo2"
+          aria-expanded="true"
+          aria-controls="collapseTwo2"
+        >
+          <h5 class="mb-0">Author(Korean) &nbsp; <i class="fas fa-angle-down rotate-icon"></i></h5>
+        </a>
+      </div>
+
+      <!-- Card body -->
+      <div
+        id="collapseTwo2"
+        class="collapse show"
+        role="tabpanel"
+        aria-labelledby="headingTwo2"
+        data-parent="#accordionEx"
+      >
+        <div class="card-body">
+          <% for (let i = 0; i < author_krs.items.length; i++) { %>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="<%= author_krs.items[i] %>"
+              onclick="checkboxClick(<%= author_krs.items[i] %>)"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              <%= author_krs.items[i] %>
+              <span class="badge light-blue text-dark"><%= author_krs.val[i] %></span>
+            </label>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- Accordion card -->
+
+    <!-- Accordion card -->
+    <div class="card">
+      <!-- Card header -->
+      <div class="card-header light-gray" role="tab" id="headingThree3">
+        <a
+          class="collapsed"
+          data-toggle="collapse"
+          data-parent="#accordionEx"
+          href="#collapseThree3"
+          aria-expanded="true"
+          aria-controls="collapseThree3"
+        >
+          <h5 class="mb-0">Publisher &nbsp; <i class="fas fa-angle-down rotate-icon"></i></h5>
+        </a>
+      </div>
+
+      <!-- Card body -->
+      <div
+        id="collapseThree3"
+        class="collapse show"
+        role="tabpanel"
+        aria-labelledby="headingThree3"
+        data-parent="#accordionEx"
+      >
+        <div class="card-body">
+          <% for (let i = 0; i < publishers.items.length; i++) { %>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="<%= publishers.items[i] %>"
+              onclick="checkboxClick(<%= publishers.items[i] %>)"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              <%= publishers.items[i] %>
+              <span class="badge light-blue text-dark"><%= publishers.val[i] %></span>
+            </label>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- Accordion card -->
+  </div>
+  <!-- Accordion wrapper -->
+</article>

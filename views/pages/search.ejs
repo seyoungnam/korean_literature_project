@@ -1,0 +1,67 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="container">
+        <div class="row">
+          <% if (keyword) { %>
+          <div class="col-sm sidebar-title">Keyword search: <b><%= keyword %></b></div>
+          <% } else {%>
+          <div class="col-sm sidebar-title">Keyword search: <b>None</b></div>
+          <% } %>
+          <div class="col-sm sidebar-title">Number of results: <%= books.length %></div>
+        </div>
+        <%- include('./partials/advancedSearch') %>
+      </div>
+      <!-- sort by -->
+      <div class="dropdown my-3">
+        <button
+          class="btn btn-sm dropdown-toggle rounded-pill light-purple"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <% if (sort_by) { %> Sort by: <%=sort_by%> <% } else {%> Sort by: None <% } %>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="?keyword=<%=keyword%>&sort_by=work_title">Title</a>
+          <a class="dropdown-item" href="?keyword=<%=keyword%>&sort_by=source_title">Source</a>
+          <a class="dropdown-item" href="?keyword=<%=keyword%>&sort_by=author">Author</a>
+          <a class="dropdown-item" href="?keyword=<%=keyword%>&sort_by=author_kr"
+            >Author (Korean)</a
+          >
+          <a class="dropdown-item" href="?keyword=<%=keyword%>&sort_by=translator">Translator</a>
+          <a class="dropdown-item" href="?keyword=<%=keyword%>&sort_by=publisher">Publisher</a>
+          <a class="dropdown-item" href="?keyword=<%=keyword%>&sort_by=published">Published Year</a>
+        </div>
+      </div>
+
+      <article class="speakerslist maincontent">
+        <% books.forEach(function (book) {%>
+        <hr />
+        <div class="mb-4">
+          <h5 class="speakerslist-title">
+            <% if (book.work_title) { %>
+            <a class="speakerslist-title" href="/search/details/<%=book.id%>"
+              ><%=book.work_title%></a
+            >
+            <% } else {%>
+            <a class="speakerslist-title" href="/search/details/<%=book.id%>">Title Not Found</a>
+            <% } %>
+          </h5>
+          <h6 class="speakerslist-info"><%=book.source_title%></h6>
+          <div class="speakerslist-name">
+            by
+            <a class="speakerslist-name" href="/author/<%=book.author_kr%>">
+              <%=book.author%> | <%=book.author_kr%>
+            </a>
+          </div>
+          <p class="speakerslist-info mt-2"><%=book.genre%> | <%=book.published%></p>
+        </div>
+        <%})%>
+      </article>
+    </div>
+    <aside class="col-sm-4"><%- include('./partials/categories') %></aside>
+  </div>
+</div>
