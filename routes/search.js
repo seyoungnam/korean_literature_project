@@ -8,7 +8,7 @@ module.exports = (params) => {
   router.get('/', async (request, response, next) => {
     try {
       const keyword = null;
-      const sort_by = work_title;
+      const sort_by = 'work_title';
       const books = await searchService.getListAll();
       const artwork = await speakersService.getAllArtwork();
       return response.render('layout', {

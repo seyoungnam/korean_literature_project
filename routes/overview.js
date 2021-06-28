@@ -10,10 +10,32 @@ module.exports = (params) => {
       const keyword = null;
       // const sort_by = work_title;
       const books = await searchService.getListAll();
+      const fictions = await searchService.getListByGenre('Fiction');
+      const poems = await searchService.getListByGenre('Poem');
+      const essays = await searchService.getListByGenre('Essay');
+      const plays = await searchService.getListByGenre('Play');
+      const childrens = await searchService.getListByGenre('Children');
+      const classic_generals = await searchService.getListByGenre('Classic_General');
+      const classic_poems = await searchService.getListByGenre('Classic_Poem');
+      const classic_historys = await searchService.getListByGenre('Classic_History');
+      const classic_folktales = await searchService.getListByGenre('Classic_FolkTale');
+      const classic_fictions = await searchService.getListByGenre('Classic_Fiction');
+      const miscs = await searchService.getListByGenre('Misc');
       return response.render('layout', {
         pageTitle: 'Materials Overview',
         template: 'overview',
         books,
+        fictions,
+        poems,
+        essays,
+        plays,
+        childrens,
+        classic_generals,
+        classic_poems,
+        classic_historys,
+        classic_folktales,
+        classic_fictions,
+        miscs,
       });
     } catch (err) {
       return next(err);
