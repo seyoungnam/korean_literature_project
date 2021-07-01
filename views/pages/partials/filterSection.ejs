@@ -1,0 +1,51 @@
+<% if (locals.genre || locals.author_kr || locals.translator || locals.year) {%>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <!-- genre start -->
+    <% if (genre) { %> <% if (typeof genre == "string") { %>
+    <li class="breadcrumb-item" id="breadcrumb_genre">
+      <span class="badge badge-pill badge-primary"> <%= genre %></span>
+    </li>
+    <% } else {%> <% genre.forEach(function (item) { %>
+    <li class="breadcrumb-item" id="breadcrumb_genre">
+      <span class="badge badge-pill badge-primary"> <%= item %></span>
+    </li>
+    <% }) %> <% } %> <% } %>
+
+    <!-- genre end -->
+    <!-- author_kr start -->
+    <% if (author_kr) { %> <% if (typeof author_kr == "string") { %>
+    <li class="breadcrumb-item" id="breadcrumb_author_kr">
+      <span class="badge badge-pill badge-secondary"> <%= author_kr %></span>
+    </li>
+    <% } else {%> <% author_kr.forEach(function (item) { %>
+    <li class="breadcrumb-item" id="breadcrumb_author_kr">
+      <span class="badge badge-pill badge-secondary"> <%= item %></span>
+    </li>
+    <% }) %> <% } %> <% } %>
+    <!-- author_kr end -->
+    <!-- translator start -->
+    <% if (translator) { %> <% if (typeof translator == "string") { %>
+    <li class="breadcrumb-item" id="breadcrumb_translator">
+      <span class="badge badge-pill badge-success"> <%= translator %></span>
+    </li>
+    <% } else {%> <% author_kr.forEach(function (item) { %>
+    <li class="breadcrumb-item" id="breadcrumb_translator">
+      <span class="badge badge-pill badge-success"> <%= item %></span>
+    </li>
+    <% }) %> <% } %> <% } %>
+    <!-- translator end -->
+    <!-- year start -->
+    <% if (year) { %> <% if (typeof year == "string") { %>
+    <li class="breadcrumb-item" id="breadcrumb_year">
+      <span class="badge badge-pill badge-warning"> <%= year %></span>
+    </li>
+    <% } else {%> <% author_kr.forEach(function (item) { %>
+    <li class="breadcrumb-item" id="breadcrumb_year">
+      <span class="badge badge-pill badge-warning"> <%= item %></span>
+    </li>
+    <% }) %> <% } %> <% } %>
+    <!-- year end -->
+  </ol>
+</nav>
+<% } %>

@@ -37,13 +37,12 @@
           <% for (let i = 0; i < genres.items.length; i++) { %>
           <div class="form-check">
             <input
-              class="form-check-input"
+              class="form-check-input genre_filter"
               type="checkbox"
-              value=""
+              value="<%= genres.items[i] %>"
               id="<%= genres.items[i] %>"
-              onclick="checkboxClick(<%= genres.items[i] %>)"
             />
-            <label class="form-check-label" for="flexCheckDefault">
+            <label class="form-check-label mt-1" for="flexCheckDefault">
               <%= genres.items[i] %>
               <span class="badge light-blue text-dark"><%= genres.val[i] %></span>
             </label>
@@ -82,13 +81,12 @@
           <% for (let i = 0; i < author_krs.items.length; i++) { %>
           <div class="form-check">
             <input
-              class="form-check-input"
+              class="form-check-input author_kr_filter"
               type="checkbox"
-              value=""
+              value="<%= author_krs.items[i] %>"
               id="<%= author_krs.items[i] %>"
-              onclick="checkboxClick(<%= author_krs.items[i] %>)"
             />
-            <label class="form-check-label" for="flexCheckDefault">
+            <label class="form-check-label mt-1" for="flexCheckDefault">
               <%= author_krs.items[i] %>
               <span class="badge light-blue text-dark"><%= author_krs.val[i] %></span>
             </label>
@@ -111,7 +109,7 @@
           aria-expanded="true"
           aria-controls="collapseThree3"
         >
-          <h5 class="mb-0">Publisher &nbsp; <i class="fas fa-angle-down rotate-icon"></i></h5>
+          <h5 class="mb-0">Translator &nbsp; <i class="fas fa-angle-down rotate-icon"></i></h5>
         </a>
       </div>
 
@@ -124,18 +122,61 @@
         data-parent="#accordionEx"
       >
         <div class="card-body">
-          <% for (let i = 0; i < publishers.items.length; i++) { %>
+          <% for (let i = 0; i < translators.items.length; i++) { %>
           <div class="form-check">
             <input
-              class="form-check-input"
+              class="form-check-input translator_filter"
               type="checkbox"
-              value=""
-              id="<%= publishers.items[i] %>"
-              onclick="checkboxClick(<%= publishers.items[i] %>)"
+              value="<%= translators.items[i] %>"
+              id="<%= translators.items[i] %>"
             />
-            <label class="form-check-label" for="flexCheckDefault">
-              <%= publishers.items[i] %>
-              <span class="badge light-blue text-dark"><%= publishers.val[i] %></span>
+            <label class="form-check-label mt-1" for="flexCheckDefault">
+              <%= translators.items[i] %>
+              <span class="badge light-blue text-dark"><%= translators.val[i] %></span>
+            </label>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- Accordion card -->
+
+    <!-- Accordion card -->
+    <div class="card">
+      <!-- Card header -->
+      <div class="card-header light-gray" role="tab" id="headingFour4">
+        <a
+          class="collapsed"
+          data-toggle="collapse"
+          data-parent="#accordionEx"
+          href="#collapseFour4"
+          aria-expanded="true"
+          aria-controls="collapseFour4"
+        >
+          <h5 class="mb-0">Year &nbsp; <i class="fas fa-angle-down rotate-icon"></i></h5>
+        </a>
+      </div>
+
+      <!-- Card body -->
+      <div
+        id="collapseThree3"
+        class="collapse show"
+        role="tabpanel"
+        aria-labelledby="headingThree3"
+        data-parent="#accordionEx"
+      >
+        <div class="card-body">
+          <% for (let i = 0; i < years.items.length; i++) { %>
+          <div class="form-check">
+            <input
+              class="form-check-input year_filter"
+              type="checkbox"
+              value="<%= years.items[i] %>"
+              id="<%= years.items[i] %>"
+            />
+            <label class="form-check-label mt-1" for="flexCheckDefault">
+              <%= years.items[i] %>
+              <span class="badge light-blue text-dark"><%= years.val[i] %></span>
             </label>
           </div>
           <% } %>

@@ -54,12 +54,12 @@ class SearchService {
         translator: book.translator,
         source_title: book.source_title,
         publisher: book.publisher,
-        published: book.published,
+        year: book.year,
       };
     });
   }
 
-  async getListKeyword(keyword, index) {
+  async getListKeyword(keyword) {
     const data = await this.getData();
     const answer = data.filter((book) =>
       Object.values(book)
@@ -70,7 +70,7 @@ class SearchService {
         : false
     );
 
-    answer.sort((a, b) => (a[index] == b[index] ? 0 : a[index] < b[index] ? -1 : 1));
+    // answer.sort((a, b) => (a[index] == b[index] ? 0 : a[index] < b[index] ? -1 : 1));
 
     return answer.map((book) => {
       return {
@@ -82,7 +82,25 @@ class SearchService {
         translator: book.translator,
         source_title: book.source_title,
         publisher: book.publisher,
-        published: book.published,
+        year: book.year,
+      };
+    });
+  }
+
+  async getSortedList(data, sort_by) {
+    data.sort((a, b) => (a[sort_by] == b[sort_by] ? 0 : a[sort_by] < b[sort_by] ? -1 : 1));
+
+    return data.map((book) => {
+      return {
+        id: book.id,
+        genre: book.genre,
+        author_kr: book.author_kr,
+        author: book.author,
+        work_title: book.work_title,
+        translator: book.translator,
+        source_title: book.source_title,
+        publisher: book.publisher,
+        year: book.year,
       };
     });
   }
@@ -103,7 +121,7 @@ class SearchService {
         translator: book.translator,
         source_title: book.source_title,
         publisher: book.publisher,
-        published: book.published,
+        year: book.year,
       };
     });
   }
@@ -123,33 +141,49 @@ class SearchService {
       translator: details.translator,
       source_title: details.source_title,
       publisher: details.publisher,
-      published: details.published,
+      year: details.year,
     };
   }
 
-  async getListByCategory(data, category, keyword) {
+  async getListByCategory(data, category, keywords) {
     if (category === 'any') {
       return data.filter((book) =>
         Object.values(book)
           .map((val) => val.toLowerCase())
-          .map((x) => x.includes(keyword.toLowerCase()))
+          .map((x) => x.includes(keywords.toLowerCase()))
           .filter((x) => x == true).length > 0
           ? true
           : false
       );
     }
+    console.log('keywords.length = ', typeof keywords);
+    if (typeof keywords == 'string') {
+      return data.filter((book) =>
+        !book[category]
+          ? false
+          : book[category].toLowerCase() == keywords.toLowerCase()
+          ? true
+          : false
+      );
+    } else {
+      return data.filter((book) =>
+        !book[category]
+          ? false
+          : keywords.map((keyword) => keyword == book[category]).some((item) => item > 0)
+          ? true
+          : false
+      );
+    }
+
     // return data.filter((book) =>
-    //   book[category]
-    //     ? book[category].map((val) => val.toLowerCase()).includes(keyword.toLowerCase())
+    //   !book[category]
+    //     ? false
+    //     : keywords
+    //         .map((keyword) => book[category].toLowerCase().includes(keyword.toLowerCase()))
+    //         .filter((x) => x == true).length > 0
+    //     ? true
     //     : false
     // );
-    return data.filter((book) =>
-      !book[category]
-        ? false
-        : book[category].toLowerCase().includes(keyword.toLowerCase())
-        ? true
-        : false
-    );
   }
 
   async getListAdvanced(categories, keywords, logics, sort_by) {
@@ -200,7 +234,7 @@ class SearchService {
         translator: book.translator,
         source_title: book.source_title,
         publisher: book.publisher,
-        published: book.published,
+        year: book.year,
       };
     });
   }
@@ -231,7 +265,7 @@ class SearchService {
     return { items: Object.keys(result_author_kr), val: Object.values(result_author_kr) };
   }
 
-  async getPublishFilter(books) {
+  async getTranslatorFilter(books) {
     // // genre
     // const result_genre = books
     //   .map(({ genre }) => genre)
@@ -249,15 +283,28 @@ class SearchService {
     //     return accumulator;
     //   }, {});
     // publisher
-    const result_publisher = books
-      .map(({ publisher }) => publisher)
+    const result_translator = books
+      .map(({ translator }) => translator)
       .reduce((accumulator, curVal) => {
         const count = accumulator[curVal] || 0;
         accumulator[curVal] = count + 1;
         return accumulator;
       }, {});
 
-    return { items: Object.keys(result_publisher), val: Object.values(result_publisher) };
+    return { items: Object.keys(result_translator), val: Object.values(result_translator) };
+  }
+
+  async getYearFilter(books) {
+    // author_kr
+    const result_year = books
+      .map(({ year }) => year)
+      .reduce((accumulator, curVal) => {
+        const count = accumulator[curVal] || 0;
+        accumulator[curVal] = count + 1;
+        return accumulator;
+      }, {});
+
+    return { items: Object.keys(result_year), val: Object.values(result_year) };
   }
 }
 
