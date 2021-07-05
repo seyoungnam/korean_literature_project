@@ -1,26 +1,22 @@
 <p>
   <a
     data-toggle="collapse"
-    href="#collapseExample"
+    href="#advanced_search_input"
     role="button"
     aria-expanded="false"
-    aria-controls="collapseExample"
+    aria-controls="advanced_search_input"
   >
     Advanced Search
   </a>
 </p>
-<div class="collapse" id="collapseExample">
+<div class="collapse" id="advanced_search_input">
   <div class="card card-body">
     <h6 class="card-subtitle mb-2 text-muted">Search filters</h6>
     <form action="/search/advanced">
       <!-- condition 1 -->
       <div class="input-group input-group-sm mb-3 border-primary">
         <input hidden type="text" value="and" name="logic" />
-        <select
-          class="col-5 custom-select light-purple border-0"
-          id="inputGroupSelect01"
-          name="category"
-        >
+        <select class="col-5 custom-select light-purple border-0" id="category_0" name="category">
           <option selected value="any">Any</option>
           <option value="work_title">Title</option>
           <option value="source_title">Source</option>
@@ -34,6 +30,7 @@
         <input
           type="text"
           class="form-control input-sm light-gray border-0"
+          id="keyword_0"
           value="<%= keyword %>"
           aria-label="Username"
           aria-describedby="basic-addon1"
@@ -42,21 +39,17 @@
       </div>
       <!-- condition 2 -->
       <div id="candidate_wrapper">
-        <div class="input-group input-group-sm border-primary candidate">
+        <div class="input-group input-group-sm mb-3 border-primary candidate">
           <select
             class="col-2 custom-select dark-purple border-0 text-white"
-            id="inputGroupSelect01"
+            id="logic_1"
             name="logic"
           >
             <option selected value="and">AND</option>
             <option value="or">OR</option>
             <option value="not">NOT</option>
           </select>
-          <select
-            class="col-3 custom-select light-purple border-0"
-            id="inputGroupSelect01"
-            name="category"
-          >
+          <select class="col-3 custom-select light-purple border-0" id="category_1" name="category">
             <option selected value="work_title">Title</option>
             <option value="source_title">Source</option>
             <option value="author">Author</option>
@@ -69,28 +62,32 @@
           <input
             type="text"
             class="form-control input-sm light-gray border-0"
+            id="keyword_1"
             aria-label="Username"
             aria-describedby="basic-addon1"
             name="keyword"
           />
-          <span class="float-right">
-            <p class="btn btn-sm border-0 align-text-top delete_input_button">
-              <i class="bi bi-x-square-fill text-danger"></i>
-            </p>
-          </span>
         </div>
       </div>
       <!-- dynamic List -->
       <div class="add_input_field"></div>
 
-      <div class="p-2">
-        <p class="btn btn-sm border-0 float-right add_input_button">
-          <i class="bi bi-plus-square-fill sea-blue"></i> Add Another
-        </p>
+      <div class="d-flex">
+        <div class="mr-auto p-2">
+          <input hidden type="text" value="work_title" name="sort_by" />
+          <button type="submit" class="btn btn-sm dark-purple text-white">Search</button>
+        </div>
+        <div class="p-2">
+          <p class="btn btn-sm border-0 float-right add_input_button">
+            <i class="bi bi-plus-square-fill text-sea-blue"></i> Add Another
+          </p>
+        </div>
+        <div class="p-2">
+          <p class="btn btn-sm border-0 float-right delete_input_button">
+            <i class="bi bi-x-square-fill text-danger"></i> Delete
+          </p>
+        </div>
       </div>
-      <input hidden type="text" value="work_title" name="sort_by" />
-      <!-- <input class="btn btn-primary" type="submit" value="Search" /> -->
-      <button type="submit" class="btn btn-sm dark-purple text-white">Search</button>
     </form>
   </div>
 </div>

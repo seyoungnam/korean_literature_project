@@ -51,24 +51,24 @@ module.exports = (params) => {
       let books_year_filter = [];
       let books_total_filter = [];
       if (genre) {
-        books_genre_filter = await searchService.getListByCategory(books, 'genre', genre);
+        books_genre_filter = await searchService.getListByCategoryEqual(books, 'genre', genre);
       }
       if (author_kr) {
-        books_author_kr_filter = await searchService.getListByCategory(
+        books_author_kr_filter = await searchService.getListByCategoryEqual(
           books,
           'author_kr',
           author_kr
         );
       }
       if (translator) {
-        books_translator_filter = await searchService.getListByCategory(
+        books_translator_filter = await searchService.getListByCategoryEqual(
           books,
           'translator',
           translator
         );
       }
       if (year) {
-        books_year_filter = await searchService.getListByCategory(books, 'year', year);
+        books_year_filter = await searchService.getListByCategoryEqual(books, 'year', year);
       }
       books_total_filter = [
         ...books_genre_filter,
@@ -118,24 +118,66 @@ module.exports = (params) => {
 
   router.get('/advanced', async (request, response, next) => {
     try {
+      const logics = request.query.logic;
       const categories = request.query.category;
       const keywords = request.query.keyword;
       const keyword = keywords[0];
-      const logics = request.query.logic;
-      const sort_by = request.query.sort_by;
-      console.log(categories);
-      console.log(keywords);
-      console.log(logics);
-      const books = await searchService.getListAdvanced(categories, keywords, logics, sort_by);
+
+      const sort_by = request.query.sort_by || 'work_title';
+
+      const genre = request.query.genre;
+      const author_kr = request.query.author_kr;
+      const translator = request.query.translator;
+      const year = request.query.year;
+
+      let books = await searchService.getListAdvanced(categories, keywords, logics, sort_by);
       const genres = await searchService.getGenreFilter(books);
       const author_krs = await searchService.getAuthorKrFilter(books);
       const translators = await searchService.getTranslatorFilter(books);
       const years = await searchService.getYearFilter(books);
+
+      let books_genre_filter = [];
+      let books_author_kr_filter = [];
+      let books_translator_filter = [];
+      let books_year_filter = [];
+      let books_total_filter = [];
+      if (genre) {
+        books_genre_filter = await searchService.getListByCategoryEqual(books, 'genre', genre);
+      }
+      if (author_kr) {
+        books_author_kr_filter = await searchService.getListByCategoryEqual(
+          books,
+          'author_kr',
+          author_kr
+        );
+      }
+      if (translator) {
+        books_translator_filter = await searchService.getListByCategoryEqual(
+          books,
+          'translator',
+          translator
+        );
+      }
+      if (year) {
+        books_year_filter = await searchService.getListByCategoryEqual(books, 'year', year);
+      }
+      books_total_filter = [
+        ...books_genre_filter,
+        ...books_author_kr_filter,
+        ...books_translator_filter,
+        ...books_year_filter,
+      ].filter((ele, idx, arr) => arr.findIndex((t) => t.id === ele.id) === idx);
+      console.log(books_total_filter);
+      if (books_total_filter.length > 0) {
+        books = books_total_filter;
+      }
+
+      books = await searchService.getSortedList(books, sort_by);
+
       console.log(books);
       return response.render('layout', {
         pageTitle: 'Search books',
         template: 'search',
-        // keywords,
         keyword,
         sort_by,
         books,
@@ -143,6 +185,10 @@ module.exports = (params) => {
         author_krs,
         translators,
         years,
+        genre,
+        author_kr,
+        translator,
+        year,
       });
     } catch (err) {
       return next(err);

@@ -145,7 +145,7 @@ class SearchService {
     };
   }
 
-  async getListByCategory(data, category, keywords) {
+  async getListByCategoryIncludes(data, category, keywords) {
     if (category === 'any') {
       return data.filter((book) =>
         Object.values(book)
@@ -159,11 +159,46 @@ class SearchService {
     console.log('keywords.length = ', typeof keywords);
     if (typeof keywords == 'string') {
       return data.filter((book) =>
+        !book[category] ? false : book[category].toLowerCase().includes(keywords.toLowerCase())
+      );
+    } else {
+      return data.filter((book) =>
         !book[category]
           ? false
-          : book[category].toLowerCase() == keywords.toLowerCase()
+          : keywords
+              .map((keyword) => book[category].toLowerCase().includes(keyword.toLowerCase()))
+              .some((item) => item > 0)
           ? true
           : false
+      );
+    }
+
+    // return data.filter((book) =>
+    //   !book[category]
+    //     ? false
+    //     : keywords
+    //         .map((keyword) => book[category].toLowerCase().includes(keyword.toLowerCase()))
+    //         .filter((x) => x == true).length > 0
+    //     ? true
+    //     : false
+    // );
+  }
+
+  async getListByCategoryEqual(data, category, keywords) {
+    if (category === 'any') {
+      return data.filter((book) =>
+        Object.values(book)
+          .map((val) => val.toLowerCase())
+          .map((x) => x.includes(keywords.toLowerCase()))
+          .filter((x) => x == true).length > 0
+          ? true
+          : false
+      );
+    }
+    console.log('keywords.length = ', typeof keywords);
+    if (typeof keywords == 'string') {
+      return data.filter((book) =>
+        !book[category] ? false : book[category].toLowerCase() == keywords.toLowerCase()
       );
     } else {
       return data.filter((book) =>
@@ -202,24 +237,24 @@ class SearchService {
 
       console.log('getListAdvanced : ', logic, category, keyword);
       if (i === 0) {
-        answer = await this.getListByCategory(data, category, keyword);
+        answer = await this.getListByCategoryIncludes(data, category, keyword);
       } else {
         if (!keyword) {
           continue;
         }
         if (logic === 'and') {
-          answer = await this.getListByCategory(answer, category, keyword);
+          answer = await this.getListByCategoryIncludes(answer, category, keyword);
+          console.log('interim answer=', answer);
         } else if (logic === 'or') {
-          const answer_or = await this.getListByCategory(answer, category, keyword);
+          const answer_or = await this.getListByCategoryIncludes(data, category, keyword);
           answer = [...answer, ...answer_or].filter(
             (ele, idx, arr) => arr.findIndex((t) => t.id === ele.id) === idx
           );
         } else {
-          const answer_not = await this.getListByCategory(answer, category, keyword);
+          const answer_not = await this.getListByCategoryIncludes(answer, category, keyword);
           answer = answer.filter((x) => !answer_not.filter((y) => y.id === x.id).length);
         }
       }
-      // console.log('getListAdvanced(each loop)', i, answer);
     }
 
     answer.sort((a, b) => (a[sort_by] == b[sort_by] ? 0 : a[sort_by] < b[sort_by] ? -1 : 1));
@@ -305,6 +340,13 @@ class SearchService {
       }, {});
 
     return { items: Object.keys(result_year), val: Object.values(result_year) };
+  }
+
+  async urlCleaning(url_original) {
+    if (url_original.includes('sort_by')) {
+      url_original = url_original.slice(0, url_original.indexOf('sort_by'));
+    }
+    return url_original;
   }
 }
 

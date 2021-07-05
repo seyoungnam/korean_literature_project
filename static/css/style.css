@@ -161,8 +161,16 @@ header .navbar-brand {
   background-color: #a0d2eb;
 }
 
+.skyblue {
+  background-color: #e9effd;
+}
+
 .sea-blue {
   background-color: #02729e;
+}
+
+.text-sea-blue {
+  color: #02729e;
 }
 
 .advancedSearchButton {
@@ -176,3 +184,23 @@ header .navbar-brand {
   font-size: 10px;
   border-radius: 8px;
 }
+
+/* .badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 6px;
+  border: 1px solid transparent;
+  min-width: 10px;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: 99999px;
+}
+
+.badge-outlined {
+  border-color: #323a45;
+  color: #323a45;
+} */

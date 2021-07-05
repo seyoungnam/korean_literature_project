@@ -22,12 +22,17 @@ const port = process.env.port || 3000;
 
 app.set('trust proxy', 1);
 
-app.use(
-  cookieSession({
-    name: 'session',
-    keys: ['aldkjfidlej', 'adfefidk'],
-  })
-);
+// url
+app.use(async (req, res, next) => {
+  try {
+    res.locals.url = await searchService.urlCleaning(req.originalUrl);
+    res.locals.host = req.get('host');
+    res.locals.protocol = req.protocol;
+    return next();
+  } catch (err) {
+    return next(err);
+  }
+});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
