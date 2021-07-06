@@ -3,7 +3,10 @@ body {
   padding: 0;
   font-size: 100%;
   font-weight: 100;
-  font-family: 'Roboto', sans-serif;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  background-color: #f8f9fa !important;
 }
 
 h1,
@@ -25,7 +28,12 @@ h2 {
 }
 
 a {
-  color: #02729e;
+  /* color: #02729e; */
+  color: #767676;
+}
+
+a:hover {
+  color: #111;
 }
 
 header .jumbotron {
@@ -39,18 +47,53 @@ header .jumbotron {
 }
 
 header .navbar-brand {
-  font-size: 1.2em;
+  font-size: 1.3em;
+  font-weight: 330;
+  color: #4b2e83;
+}
+
+footer {
+  background-color: #4b2e83;
 }
 
 .navbar {
-  background-color: #8458b3;
+  /* font-family: 'Roboto', sans-serif; */
+  padding: 1.25rem 0;
+  padding-top: 1.25rem;
+  padding-right: 0px;
+  padding-bottom: 1.25rem;
+  padding-left: 0px;
+  font-weight: 300;
+}
+
+.mt-8 {
+  margin-top: 3rem !important;
+}
+
+.fw-bold {
+  font-weight: 300 !important;
+}
+
+.fs-lg {
+  font-size: 1.1875rem !important;
+}
+
+.text-muted {
+  /* color: #869ab8 !important; */
+  color: #37465b !important;
+}
+
+section {
+  padding-top: 5rem;
+  padding-bottom: 7rem;
+  position: relative;
 }
 
 .maincontent {
   line-height: 160%;
 }
 
-.sidebar {
+.font-badge {
   font-family: 'Roboto', sans-serif;
   line-height: 130%;
 }
@@ -80,8 +123,25 @@ header .navbar-brand {
   line-height: 160%;
 }
 
-.speakerslist-title {
-  color: #a79344 !important;
+.text-blue {
+  color: #335eea !important;
+}
+
+.text-gray {
+  color: #506690 !important;
+}
+
+.text-black {
+  /* color: #a79344 !important; */
+  color: #161c2d !important;
+}
+
+.text-purple {
+  color: #8458b3 !important;
+}
+
+.text-red {
+  color: #f1416c !important;
 }
 
 .speakerslist-name a:hover {
@@ -145,6 +205,14 @@ header .navbar-brand {
   }
 }
 
+.light-green {
+  background-color: #d2f4ea;
+}
+
+.skygreen {
+  background-color: rgba(12, 220, 185, 0.1) !important;
+}
+
 .dark-purple {
   background-color: #8458b3;
 }
@@ -153,8 +221,13 @@ header .navbar-brand {
   background-color: #d0bdf4;
 }
 
+.skypurple {
+  background-color: #ebe8fd;
+}
+
 .light-gray {
-  background-color: #e5eaf5;
+  /* background-color: #e5eaf5; */
+  background-color: #f1f3f4;
 }
 
 .light-blue {
@@ -169,8 +242,24 @@ header .navbar-brand {
   background-color: #02729e;
 }
 
+.light-red {
+  background-color: #ffeff3;
+}
+
 .text-sea-blue {
   color: #02729e;
+}
+
+.border-blue {
+  border: 1px solid #335eea;
+}
+
+.border-red {
+  border: 1px solid #f1416c;
+}
+
+.border-purple {
+  border: 1px solid #8458b3;
 }
 
 .advancedSearchButton {

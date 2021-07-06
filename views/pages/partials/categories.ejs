@@ -8,9 +8,9 @@
   <!--Accordion wrapper-->
   <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
     <!-- Accordion card -->
-    <div class="card">
+    <div class="card mb-3 shadow-sm rounded-3">
       <!-- Card header -->
-      <div class="card-header light-gray" role="tab" id="headingOne1">
+      <div class="card-header skypurple" role="tab" id="headingOne1">
         <a
           data-toggle="collapse"
           data-parent="#accordionEx"
@@ -18,10 +18,10 @@
           aria-expanded="true"
           aria-controls="collapseOne1"
         >
-          <h5 class="mb-0">
+          <h6 class="mb-0 text-black">
             Genre &nbsp;
             <i class="fas fa-angle-down rotate-icon"></i>
-          </h5>
+          </h6>
         </a>
       </div>
 
@@ -42,9 +42,9 @@
               value="<%= genres.items[i] %>"
               id="<%= genres.items[i] %>"
             />
-            <label class="form-check-label mt-1" for="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
               <%= genres.items[i] %>
-              <span class="badge light-blue text-dark"><%= genres.val[i] %></span>
+              <span class="badge skyblue text-blue rounded-circle"><%= genres.val[i] %></span>
             </label>
           </div>
           <% } %>
@@ -54,9 +54,9 @@
     <!-- Accordion card -->
 
     <!-- Accordion card -->
-    <div class="card">
+    <div class="card mb-3 shadow-sm rounded-3">
       <!-- Card header -->
-      <div class="card-header light-gray" role="tab" id="headingTwo2">
+      <div class="card-header skypurple" role="tab" id="headingTwo2">
         <a
           class="collapsed"
           data-toggle="collapse"
@@ -65,7 +65,9 @@
           aria-expanded="true"
           aria-controls="collapseTwo2"
         >
-          <h5 class="mb-0">Author(Korean) &nbsp; <i class="fas fa-angle-down rotate-icon"></i></h5>
+          <h6 class="mb-0 text-black">
+            Author(Korean) &nbsp; <i class="fas fa-angle-down rotate-icon"></i>
+          </h6>
         </a>
       </div>
 
@@ -86,9 +88,9 @@
               value="<%= author_krs.items[i] %>"
               id="<%= author_krs.items[i] %>"
             />
-            <label class="form-check-label mt-1" for="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
               <%= author_krs.items[i] %>
-              <span class="badge light-blue text-dark"><%= author_krs.val[i] %></span>
+              <span class="badge skyblue text-blue rounded-circle"><%= author_krs.val[i] %></span>
             </label>
           </div>
           <% } %>
@@ -98,9 +100,9 @@
     <!-- Accordion card -->
 
     <!-- Accordion card -->
-    <div class="card">
+    <div class="card mb-3 shadow-sm rounded-3">
       <!-- Card header -->
-      <div class="card-header light-gray" role="tab" id="headingThree3">
+      <div class="card-header skypurple" role="tab" id="headingThree3">
         <a
           class="collapsed"
           data-toggle="collapse"
@@ -109,7 +111,9 @@
           aria-expanded="true"
           aria-controls="collapseThree3"
         >
-          <h5 class="mb-0">Translator &nbsp; <i class="fas fa-angle-down rotate-icon"></i></h5>
+          <h6 class="mb-0 text-black">
+            Translator &nbsp; <i class="fas fa-angle-down rotate-icon"></i>
+          </h6>
         </a>
       </div>
 
@@ -130,9 +134,9 @@
               value="<%= translators.items[i] %>"
               id="<%= translators.items[i] %>"
             />
-            <label class="form-check-label mt-1" for="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
               <%= translators.items[i] %>
-              <span class="badge light-blue text-dark"><%= translators.val[i] %></span>
+              <span class="badge skyblue text-blue rounded-circle"><%= translators.val[i] %></span>
             </label>
           </div>
           <% } %>
@@ -142,9 +146,9 @@
     <!-- Accordion card -->
 
     <!-- Accordion card -->
-    <div class="card">
+    <div class="card mb-3 shadow-sm rounded-3">
       <!-- Card header -->
-      <div class="card-header light-gray" role="tab" id="headingFour4">
+      <div class="card-header skypurple" role="tab" id="headingFour4">
         <a
           class="collapsed"
           data-toggle="collapse"
@@ -153,7 +157,7 @@
           aria-expanded="true"
           aria-controls="collapseFour4"
         >
-          <h5 class="mb-0">Year &nbsp; <i class="fas fa-angle-down rotate-icon"></i></h5>
+          <h6 class="mb-0 text-black">Year &nbsp; <i class="fas fa-angle-down rotate-icon"></i></h6>
         </a>
       </div>
 
@@ -174,9 +178,9 @@
               value="<%= years.items[i] %>"
               id="<%= years.items[i] %>"
             />
-            <label class="form-check-label mt-1" for="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
               <%= years.items[i] %>
-              <span class="badge light-blue text-dark"><%= years.val[i] %></span>
+              <span class="badge skyblue text-blue rounded-circle"><%= years.val[i] %></span>
             </label>
           </div>
           <% } %>

@@ -38,11 +38,17 @@
   </head>
 
   <body>
-    <header>
-      <div class="jumbotron d-none d-sm-block"></div>
-      <%- include('./partials/navigation') %>
-    </header>
-
-    <%- include(`../pages/${template}`) %> <%- include('./partials/scripts') %>
+    <header><%- include('./partials/navigation') %></header>
+    <main>
+      <%- include(`../pages/${template}`) %> <%- include('./partials/scripts') %>
+    </main>
+    <footer class="footer mt-auto pt-3">
+      <div class="container">
+        <img src="/images/W-Logo_White.png" alt="UW logo" height="60" />
+        <span class="text-muted"></span>
+          &nbsp; <img src="/images/Wordmark_center_white.png" alt="UW logo" height="15"
+        /></span>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,56 +1,99 @@
 <% if (locals.genre || locals.author_kr || locals.translator || locals.year) { %>
 <div class="container py-2">
-  <div class="col-12 p-2 rounded skyblue d-flex justify-content-start">
-    <h5 class="badge badge-primary mr-1">
-      <span class="align-middle"> Filter: </span>
-    </h5>
-    <!-- <i class="bi bi-funnel"></i> -->
+  <div
+    class="
+      col-12
+      py-2
+      rounded
+      bg-white
+      border-1
+      shadow-sm
+      d-flex
+      align-items-center
+      justify-content-start
+    "
+  >
+    <span>
+      <h5 class="badge light-green mr-1">
+        <span class="align-middle"> Filter: </span>
+      </h5>
+    </span>
     <!-- genre start -->
     <% if (genre) { %> <% if (typeof genre == "string") { %>
-    <h6>
-      <label class="badge badge-pill badge-light mr-1" id="breadcrumb_genre">
+    <span>
+      <label
+        class="badge badge-pill skypurple text-purple border-purple mr-1"
+        id="breadcrumb_genre"
+      >
         <span class="align-middle"> <%= genre %></span>
       </label>
-    </h6>
+    </span>
     <% } else {%> <% genre.forEach(function (item) { %>
-    <h6>
-      <label class="badge badge-pill badge-light mr-1" id="breadcrumb_genre">
+    <span>
+      <label
+        class="badge badge-pill skypurple text-purple border-purple mr-1"
+        id="breadcrumb_genre"
+      >
         <span class="align-middle"> <%= item %></span>
       </label>
-    </h6>
+    </span>
     <% }) %> <% } %> <% } %>
     <!-- genre end -->
     <!-- author_kr start -->
     <% if (author_kr) { %> <% if (typeof author_kr == "string") { %>
-    <label class="badge badge-pill badge-light mr-1" id="breadcrumb_author_kr">
-      <span class="align-middle"> <%= author_kr %></span>
-    </label>
+    <span>
+      <label
+        class="badge badge-pill skypurple text-purple border-purple mr-1"
+        id="breadcrumb_author_kr"
+      >
+        <span class="align-middle"> <%= author_kr %></span>
+      </label>
+    </span>
     <% } else {%> <% author_kr.forEach(function (item) { %>
-    <label class="badge badge-pill badge-light mr-1" id="breadcrumb_author_kr">
-      <span class="align-middle"> <%= item %></span>
-    </label>
+    <span>
+      <label
+        class="badge badge-pill skypurple text-purple border-purple mr-1"
+        id="breadcrumb_author_kr"
+      >
+        <span class="align-middle"> <%= item %></span>
+      </label>
+    </span>
     <% }) %> <% } %> <% } %>
     <!-- author_kr end -->
     <!-- translator start -->
     <% if (translator) { %> <% if (typeof translator == "string") { %>
-    <label class="badge badge-pill badge-light mr-1" id="breadcrumb_translator">
-      <span class="pb-2 align-middle"> <%= translator %></span>
-    </label>
+    <span>
+      <label
+        class="badge badge-pill skypurple text-purple border-purple mr-1"
+        id="breadcrumb_translator"
+      >
+        <span class="pb-2 align-middle"> <%= translator %></span>
+      </label>
+    </span>
     <% } else {%> <% translator.forEach(function (item) { %>
-    <label class="badge badge-pill badge-light mr-1" id="breadcrumb_translator">
-      <span class="pb-2 align-middle"> <%= item %></span>
-    </label>
+    <span>
+      <label
+        class="badge badge-pill skypurple text-purple border-purple mr-1"
+        id="breadcrumb_translator"
+      >
+        <span class="pb-2 align-middle"> <%= item %></span>
+      </label>
+    </span>
     <% }) %> <% } %> <% } %>
     <!-- translator end -->
     <!-- year start -->
     <% if (year) { %> <% if (typeof year == "string") { %>
-    <label class="badge badge-pill badge-light mr-1" id="breadcrumb_year">
-      <span class="pb-2 align-middle"> <%= year %></span>
-    </label>
+    <span>
+      <label class="badge badge-pill skypurple text-purple border-purple mr-1" id="breadcrumb_year">
+        <span class="pb-2 align-middle"> <%= year %></span>
+      </label>
+    </span>
     <% } else {%> <% year.forEach(function (item) { %>
-    <label class="badge badge-pill badge-light mr-1" id="breadcrumb_year">
-      <span class="pb-2 align-middle"> <%= item %></span>
-    </label>
+    <span>
+      <label class="badge badge-pill skypurple text-purple border-purple mr-1" id="breadcrumb_year">
+        <span class="pb-2 align-middle"> <%= item %></span>
+      </label>
+    </span>
     <% }) %> <% } %> <% } %>
     <!-- year end -->
   </div>

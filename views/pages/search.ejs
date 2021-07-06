@@ -4,11 +4,11 @@
       <div class="container">
         <div class="row">
           <% if (keyword) { %>
-          <div class="col-sm sidebar-title">Keyword search: <b><%= keyword %></b></div>
+          <h1 class="col-sm sidebar-title mx-n3">Keyword search: <b><%= keyword %></b></h1>
           <% } else {%>
-          <div class="col-sm sidebar-title">Keyword search: <b>None</b></div>
+          <h1 class="col-sm sidebar-title mx-n3">Keyword search: <b>None</b></h1>
           <% } %>
-          <div class="col-sm sidebar-title">Number of results: <%= books.length %></div>
+          <h1 class="col-sm sidebar-title mx-n3">Number of results: <%= books.length %></h1>
         </div>
         <%- include('./partials/advancedSearch') %>
       </div>
@@ -18,7 +18,7 @@
       <!-- sort by -->
       <div class="dropdown my-3">
         <button
-          class="btn btn-sm dropdown-toggle rounded-pill light-purple"
+          class="btn btn-sm dropdown-toggle rounded-pill skyblue text-blue font-badge border-blue"
           type="button"
           id="dropdownMenuButton"
           data-toggle="dropdown"
@@ -50,25 +50,27 @@
 
       <article class="speakerslist maincontent">
         <% books.forEach(function (book) {%>
-        <hr />
-        <div class="mb-4">
-          <h5 class="speakerslist-title">
-            <% if (book.work_title) { %>
-            <a class="speakerslist-title" href="/search/details/<%=book.id%>"
-              ><%=book.work_title%></a
-            >
-            <% } else {%>
-            <a class="speakerslist-title" href="/search/details/<%=book.id%>">Title Not Found</a>
-            <% } %>
-          </h5>
-          <h6 class="speakerslist-info"><%=book.source_title%></h6>
-          <div class="speakerslist-name">
-            by <%=book.author%> |
-            <a class="speakerslist-name" href="/author/<%=book.author_kr%>">
-              <%=book.author_kr%>
-            </a>
+        <!-- <hr /> -->
+        <div class="card shadow-sm mb-3 bg-white rounded-3">
+          <div class="card-body my-2">
+            <h5 class="text-black">
+              <% if (book.work_title) { %>
+              <a class="text-black" href="/search/details/<%=book.id%>"><%=book.work_title%></a>
+              <% } else {%>
+              <a class="text-black" href="/search/details/<%=book.id%>">Title Not Found</a>
+              <% } %>
+            </h5>
+            <h6 class="text-gray">
+              <i class="bi bi-bookmarks"></i>&nbsp;&nbsp;<%=book.source_title%>
+            </h6>
+            <h6 class="text-gray">
+              <i class="bi bi-person-circle"></i>&nbsp;&nbsp;<%=book.author%> (
+              <a class="text-gray" href="/author/<%=book.author_kr%>"> <%=book.author_kr%> </a>)
+            </h6>
+            <h6 class="text-gray">
+              <i class="bi bi-tags"></i>&nbsp;&nbsp;<%=book.genre%> | <%=book.year%>
+            </h6>
           </div>
-          <p class="speakerslist-info mt-2"><%=book.genre%> | <%=book.year%></p>
         </div>
         <%})%>
       </article>

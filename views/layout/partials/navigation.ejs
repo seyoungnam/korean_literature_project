@@ -1,4 +1,4 @@
-<nav class="navbar navbar navbar-expand-md navbar-dark">
+<nav class="navbar sticky-top navbar-expand-lg bg-white shadow-sm mb-8">
   <div class="container">
     <button
       type="button"
@@ -9,62 +9,48 @@
     >
       <span class="sr-only">Toggle navigation</span> &#x2630;
     </button>
-    <a href="/" class="navbar-brand"><%= siteName %></a>
+    <!-- <h2> -->
+    <a href="/" class="navbar-brand"><i class="bi bi-journals"></i>&nbsp;<%= siteName %></a>
+    <!-- </h2> -->
 
     <div class="collapse navbar-collapse" id="navbar-collapse">
-      <ul class="nav navbar-nav mr-auto">
-        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-        <li class="nav-item dropdown">
-          <a
-            href="/speakers"
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Speakers
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/speakers">All Speakers</a>
-            <div class="dropdown-divider"></div>
-            <% speakerNames.forEach(function (speaker) {%>
-            <a class="dropdown-item" href="/speakers/<%=speaker.shortName%>"><%=speaker.name%></a>
-            <%})%>
+      <form class="my-2" action="/search/all">
+        <!-- version 1 start -->
+        <div class="row no-gutters align-items-center">
+          <div class="col" style="width: 480px">
+            <input
+              class="form-control border-1 rounded-pill pr-5 light-gray"
+              type="search"
+              placeholder="search"
+              value=""
+              id="example-search-input2"
+              name="keyword"
+            />
           </div>
-        </li>
-        <li class="nav-item"><a href="/overview" class="nav-link">Overview</a></li>
-      </ul>
+          <div class="col-auto ml-n5">
+            <input type="hidden" name="sort_by" value="work_title" />
+            <button class="btn border-0 rounded-pill" type="submit">
+              <h7><i class="fa fa-search"></i></h7>
+            </button>
+          </div>
+        </div>
+        <!-- version 1 end -->
 
-      <!-- <form class="form-inline my-4 my-lg-0" action="/search/all">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          name="keyword"
-        />
-        <input type="hidden" name="sort_by" value="source_title" />
-        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form> -->
-
-      <form class="form-inline my-4 my-lg-0 ml-auto" action="/search/all">
-        <div class="input-group input-group-sm rounded-pill">
+        <!-- <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text border-0 light-purple" id="basic-addon1"
+            <button class="input-group-text border-1 rounded-pill mr-n5" id="basic-addon1" type="submit"
               ><strong><i class="bi bi-search"></i></strong
             ></span>
           </div>
           <input
-            type="search"
-            class="form-control border-0 light-purple"
-            placeholder="Search"
-            aria-label="Search"
-            name="keyword"
-          />
-        </div>
+          type="search"
+          class="form-control border-1 rounded-pill"
+          placeholder="search"
+          aria-label="search"
+          name="keyword"
+          style="width: 450px"
+        >
+        </div> -->
 
         <!-- <div class="input-group rounded">
           <input
@@ -84,6 +70,48 @@
           <i class="bi bi-search"></i>
         </button> -->
       </form>
+
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="/search" class="nav-link"><strong>Explore</strong></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            href="/speakers"
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <strong>Statistics</strong>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/speakers">All Speakers</a>
+            <div class="dropdown-divider"></div>
+            <% speakerNames.forEach(function (speaker) {%>
+            <a class="dropdown-item" href="/speakers/<%=speaker.shortName%>"><%=speaker.name%></a>
+            <%})%>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="/overview" class="nav-link"><strong>Overview</strong></a>
+        </li>
+      </ul>
+
+      <!-- <form class="form-inline my-4 my-lg-0" action="/search/all">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          name="keyword"
+        />
+        <input type="hidden" name="sort_by" value="source_title" />
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
     </div>
   </div>
 </nav>

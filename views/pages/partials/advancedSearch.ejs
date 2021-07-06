@@ -1,5 +1,6 @@
-<p>
+<div class="mx-n3">
   <a
+    class="text-blue"
     data-toggle="collapse"
     href="#advanced_search_input"
     role="button"
@@ -8,15 +9,19 @@
   >
     Advanced Search
   </a>
-</p>
+</div>
 <div class="collapse" id="advanced_search_input">
-  <div class="card card-body">
+  <div class="card card-body shadow-sm rounded-3 mx-n3">
     <h6 class="card-subtitle mb-2 text-muted">Search filters</h6>
     <form action="/search/advanced">
       <!-- condition 1 -->
-      <div class="input-group input-group-sm mb-3 border-primary">
+      <div class="input-group input-group-sm mb-3">
         <input hidden type="text" value="and" name="logic" />
-        <select class="col-5 custom-select light-purple border-0" id="category_0" name="category">
+        <select
+          class="col-5 custom-select skypurple border-1 rounded-start"
+          id="category_0"
+          name="category"
+        >
           <option selected value="any">Any</option>
           <option value="work_title">Title</option>
           <option value="source_title">Source</option>
@@ -29,7 +34,7 @@
         </select>
         <input
           type="text"
-          class="form-control input-sm light-gray border-0"
+          class="form-control input-sm light-gray border-1 rounded-end"
           id="keyword_0"
           value="<%= keyword %>"
           aria-label="Username"
@@ -39,9 +44,9 @@
       </div>
       <!-- condition 2 -->
       <div id="candidate_wrapper">
-        <div class="input-group input-group-sm mb-3 border-primary candidate">
+        <div class="input-group input-group-sm mb-3 candidate">
           <select
-            class="col-2 custom-select dark-purple border-0 text-white"
+            class="col-2 custom-select light-purple border-1 rounded-start"
             id="logic_1"
             name="logic"
           >
@@ -49,7 +54,7 @@
             <option value="or">OR</option>
             <option value="not">NOT</option>
           </select>
-          <select class="col-3 custom-select light-purple border-0" id="category_1" name="category">
+          <select class="col-3 custom-select skypurple border-1" id="category_1" name="category">
             <option selected value="work_title">Title</option>
             <option value="source_title">Source</option>
             <option value="author">Author</option>
@@ -61,7 +66,7 @@
           </select>
           <input
             type="text"
-            class="form-control input-sm light-gray border-0"
+            class="form-control input-sm light-gray border-1 rounded-end"
             id="keyword_1"
             aria-label="Username"
             aria-describedby="basic-addon1"
@@ -73,19 +78,21 @@
       <div class="add_input_field"></div>
 
       <div class="d-flex">
-        <div class="mr-auto p-2">
+        <div class="mr-auto pt-2">
           <input hidden type="text" value="work_title" name="sort_by" />
           <button type="submit" class="btn btn-sm dark-purple text-white">Search</button>
         </div>
         <div class="p-2">
-          <p class="btn btn-sm border-0 float-right add_input_button">
-            <i class="bi bi-plus-square-fill text-sea-blue"></i> Add Another
-          </p>
+          <button class="btn btn-sm float-right add_input_button rounded-pill skyblue text-blue">
+            <i class="bi bi-plus-circle"></i> Add Another
+          </button>
         </div>
         <div class="p-2">
-          <p class="btn btn-sm border-0 float-right delete_input_button">
-            <i class="bi bi-x-square-fill text-danger"></i> Delete
-          </p>
+          <button
+            class="btn btn-sm float-right delete_input_button rounded-pill light-red text-red"
+          >
+            <i class="bi bi-dash-circle"></i> Delete the last
+          </button>
         </div>
       </div>
     </form>
