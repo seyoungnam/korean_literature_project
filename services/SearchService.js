@@ -88,7 +88,7 @@ class SearchService {
   }
 
   async getSortedList(data, sort_by) {
-    data.sort((a, b) => (a[sort_by] == b[sort_by] ? 0 : a[sort_by] < b[sort_by] ? -1 : 1));
+    data.sort((a, b) => (a[sort_by] === b[sort_by] ? 0 : a[sort_by] < b[sort_by] ? -1 : 1));
 
     return data.map((book) => {
       return {
@@ -257,7 +257,7 @@ class SearchService {
       }
     }
 
-    answer.sort((a, b) => (a[sort_by] == b[sort_by] ? 0 : a[sort_by] < b[sort_by] ? -1 : 1));
+    answer.sort((a, b) => (a[sort_by] === b[sort_by] ? 0 : a[sort_by] < b[sort_by] ? -1 : 1));
 
     return answer.map((book) => {
       return {

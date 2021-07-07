@@ -66,6 +66,12 @@ footer {
   font-weight: 300;
 }
 
+.nav-menu:hover,
+.nav-menu:focus {
+  color: #4b2e83 !important;
+  border-bottom: 1px solid #4b2e83 !important;
+}
+
 .mt-8 {
   margin-top: 3rem !important;
 }
@@ -132,8 +138,11 @@ section {
 }
 
 .text-black {
-  /* color: #a79344 !important; */
   color: #161c2d !important;
+}
+
+.text-gold {
+  color: #a79344 !important;
 }
 
 .text-purple {
@@ -272,6 +281,23 @@ section {
   display: inline-block;
   font-size: 10px;
   border-radius: 8px;
+}
+
+.color-bar-left {
+  border-left: 3px solid #02729e;
+}
+
+.nav-pills .nav-link.active .purple_button {
+  background-color: #ebe8fd;
+  border: 1px solid #8458b3;
+  color: #8458b3;
+  padding: 5px 15px;
+  /* text-align: center; */
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 24px;
 }
 
 /* .badge {

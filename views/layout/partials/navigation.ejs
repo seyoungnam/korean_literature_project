@@ -72,32 +72,20 @@
       </form>
 
       <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item">
-          <a href="/search" class="nav-link"><strong>Explore</strong></a>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            href="/speakers"
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
+        <li class="nav-item" tabindex="1">
+          <a href="/search/all?keyword=" class="nav-link nav-menu" id="explore" tabindex="1"
+            ><strong>Explore</strong></a
           >
-            <strong>Statistics</strong>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/speakers">All Speakers</a>
-            <div class="dropdown-divider"></div>
-            <% speakerNames.forEach(function (speaker) {%>
-            <a class="dropdown-item" href="/speakers/<%=speaker.shortName%>"><%=speaker.name%></a>
-            <%})%>
-          </div>
         </li>
-        <li class="nav-item">
-          <a href="/overview" class="nav-link"><strong>Overview</strong></a>
+        <li class="nav-item" tabindex="1">
+          <a href="/statistics" class="nav-link nav-menu" id="statistics" tabindex="1"
+            ><strong>Statistics</strong></a
+          >
+        </li>
+        <li class="nav-item" tabindex="1">
+          <a href="/overview" class="nav-link nav-menu" id="overview" tabindex="1"
+            ><strong>Overview</strong></a
+          >
         </li>
       </ul>
 

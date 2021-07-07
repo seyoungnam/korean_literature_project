@@ -70,4 +70,14 @@ $(document).ready(function () {
       $(keyword_id).val(keywords[i]).change();
     }
   }
+
+  // modal id
+  for (let i = 0; i < 5000; i++) {
+    let id_start = '#modal_start_' + i;
+    let id_target = '#modal_target_' + i;
+    $(id_start).click(function (e) {
+      e.preventDefault();
+      $(id_target).modal('show');
+    });
+  }
 });

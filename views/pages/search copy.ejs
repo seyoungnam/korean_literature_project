@@ -54,23 +54,9 @@
           <div class="card-body my-2">
             <h5>
               <% if (book.work_title) { %>
-              <a
-                class="text-gold modal_start_<%=book.id%>"
-                data-toggle="modal"
-                data-target="#modal_target_<%=book.id%>"
-                href="#"
-              >
-                <%=book.work_title%>
-              </a>
+              <a class="text-gold" href="/search/details/<%=book.id%>"><%=book.work_title%></a>
               <% } else {%>
-              <a
-                class="text-black modal_start_<%=book.id%>"
-                data-toggle="modal"
-                data-target="#modal_target_<%=book.id%>"
-                href="#"
-              >
-                Title Not Found
-              </a>
+              <a class="text-black" href="/search/details/<%=book.id%>">Title Not Found</a>
               <% } %>
             </h5>
             <h6 class="text-gray">
@@ -78,72 +64,13 @@
             </h6>
             <h6 class="text-gray">
               <i class="bi bi-person-circle"></i>&nbsp;&nbsp;<%=book.author%> (
-              <a class="text-gray" href="#"> <%=book.author_kr%> </a>)
+              <a class="text-gray" href="/author/<%=book.author_kr%>"> <%=book.author_kr%> </a>)
             </h6>
             <h6 class="text-gray">
               <i class="bi bi-tags"></i>&nbsp;&nbsp;<%=book.genre%> | <%=book.year%>
             </h6>
           </div>
         </div>
-
-        <!-- Modal start -->
-        <div
-          class="modal fade"
-          id="modal_target_<%=book.id%>"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="ModalLabel_<%=book.id%>"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="ModalLabel_<%=book.id%>">Literature Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <dl class="row">
-                  <dt class="col-sm-4">Work Title</dt>
-                  <dd class="col-sm-8"><%=book.work_title%></dd>
-
-                  <dt class="col-sm-4">Author</dt>
-                  <dd class="col-sm-8"><%=book.author%></dd>
-
-                  <dt class="col-sm-4">Author (Korean)</dt>
-                  <dd class="col-sm-8"><%=book.author_kr%></dd>
-
-                  <dt class="col-sm-4">Source</dt>
-                  <dd class="col-sm-8"><%=book.source_title%></dd>
-
-                  <dt class="col-sm-4">Genre</dt>
-                  <dd class="col-sm-8"><%=book.genre%></dd>
-
-                  <dt class="col-sm-4">Translator</dt>
-                  <dd class="col-sm-8"><%=book.translator%></dd>
-
-                  <dt class="col-sm-4">Publisher</dt>
-                  <dd class="col-sm-8"><%=book.publisher%></dd>
-
-                  <dt class="col-sm-4">Published Year</dt>
-                  <dd class="col-sm-8"><%=book.year%></dd>
-                </dl>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn skypurple rounded-pill border-1"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-                <!-- <button type="button" class="btn btn-primary">Copy</button> -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Modal end -->
         <%})%>
       </article>
     </div>
