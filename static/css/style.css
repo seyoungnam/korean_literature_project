@@ -287,7 +287,8 @@ section {
   border-left: 3px solid #02729e;
 }
 
-.nav-pills .nav-link.active .purple_button {
+.nav-pills .nav-link.active,
+.purple_button {
   background-color: #ebe8fd;
   border: 1px solid #8458b3;
   color: #8458b3;
