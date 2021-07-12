@@ -88,7 +88,13 @@ class SearchService {
   }
 
   async getSortedList(data, sort_by) {
-    data.sort((a, b) => (a[sort_by] === b[sort_by] ? 0 : a[sort_by] < b[sort_by] ? -1 : 1));
+    data.sort(function (a, b) {
+      if (String(a[sort_by]).trim() === '' || String(a[sort_by]).trim() === null) return 1;
+      if (String(b[sort_by]).trim() === '' || String(b[sort_by]).trim() === null) return -1;
+      if (a[sort_by] === b[sort_by]) return 0;
+      return a[sort_by] < b[sort_by] ? -1 : 1;
+    });
+    // data.sort((a, b) => (a[sort_by] === b[sort_by] ? 0 : a[sort_by] < b[sort_by] ? -1 : 1));
 
     return data.map((book) => {
       return {
@@ -257,7 +263,13 @@ class SearchService {
       }
     }
 
-    answer.sort((a, b) => (a[sort_by] === b[sort_by] ? 0 : a[sort_by] < b[sort_by] ? -1 : 1));
+    answer.sort(function (a, b) {
+      if (String(a[sort_by]).trim() === '' || String(a[sort_by]).trim() === null) return 1;
+      if (String(b[sort_by]).trim() === '' || String(b[sort_by]).trim() === null) return -1;
+      if (a[sort_by] === b[sort_by]) return 0;
+      return a[sort_by] < b[sort_by] ? -1 : 1;
+    });
+    // answer.sort((a, b) => (a[sort_by] === b[sort_by] ? 0 : a[sort_by] < b[sort_by] ? -1 : 1));
 
     return answer.map((book) => {
       return {
