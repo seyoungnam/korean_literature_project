@@ -35,7 +35,7 @@ class SearchService {
 
     // We are using map() to transform the array we get into another one
     return data.map((book) => {
-      return { id: book.id, source_title: book.source_title, author: book.author };
+      return { id: book.id, book_journal_title: book.book_journal_title, author: book.author };
     });
   }
 
@@ -52,7 +52,7 @@ class SearchService {
         author_kr: book.author_kr,
         author: book.author,
         translator: book.translator,
-        source_title: book.source_title,
+        book_journal_title: book.book_journal_title,
         publisher: book.publisher,
         year: book.year,
       };
@@ -80,7 +80,7 @@ class SearchService {
         author: book.author,
         work_title: book.work_title,
         translator: book.translator,
-        source_title: book.source_title,
+        book_journal_title: book.book_journal_title,
         publisher: book.publisher,
         year: book.year,
       };
@@ -104,7 +104,7 @@ class SearchService {
         author: book.author,
         work_title: book.work_title,
         translator: book.translator,
-        source_title: book.source_title,
+        book_journal_title: book.book_journal_title,
         publisher: book.publisher,
         year: book.year,
       };
@@ -125,7 +125,7 @@ class SearchService {
         author: book.author,
         work_title: book.work_title,
         translator: book.translator,
-        source_title: book.source_title,
+        book_journal_title: book.book_journal_title,
         publisher: book.publisher,
         year: book.year,
       };
@@ -145,7 +145,7 @@ class SearchService {
       author: details.author,
       work_title: details.work_title,
       translator: details.translator,
-      source_title: details.source_title,
+      book_journal_title: details.book_journal_title,
       publisher: details.publisher,
       year: details.year,
     };
@@ -279,7 +279,7 @@ class SearchService {
         author: book.author,
         work_title: book.work_title,
         translator: book.translator,
-        source_title: book.source_title,
+        book_journal_title: book.book_journal_title,
         publisher: book.publisher,
         year: book.year,
       };

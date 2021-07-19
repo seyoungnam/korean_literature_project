@@ -40,7 +40,7 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
 
-app.locals.siteName = 'Korean Literature Searching System';
+app.locals.siteName = 'Korean Literature in English Translation';
 
 app.use(express.static(path.join(__dirname, './static')));
 

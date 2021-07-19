@@ -53,11 +53,15 @@ header .navbar-brand {
 }
 
 footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   background-color: #4b2e83;
+  color: white;
 }
 
 .navbar {
-  /* font-family: 'Roboto', sans-serif; */
   padding: 1.25rem 0;
   padding-top: 1.25rem;
   padding-right: 0px;
@@ -67,7 +71,9 @@ footer {
 }
 
 .nav-menu:hover,
-.nav-menu:focus {
+.nav-menu-lists.is-active,
+.nav-menu-search.is-active,
+.nav-menu-graphics.is-active {
   color: #4b2e83 !important;
   border-bottom: 1px solid #4b2e83 !important;
 }

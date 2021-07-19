@@ -34,72 +34,37 @@
             </button>
           </div>
         </div>
-        <!-- version 1 end -->
-
-        <!-- <div class="input-group">
-          <div class="input-group-prepend">
-            <button class="input-group-text border-1 rounded-pill mr-n5" id="basic-addon1" type="submit"
-              ><strong><i class="bi bi-search"></i></strong
-            ></span>
-          </div>
-          <input
-          type="search"
-          class="form-control border-1 rounded-pill"
-          placeholder="search"
-          aria-label="search"
-          name="keyword"
-          style="width: 450px"
-        >
-        </div> -->
-
-        <!-- <div class="input-group rounded">
-          <input
-            type="search"
-            class="form-control rounded"
-            placeholder=<i class="bi bi-search"></i>
-            aria-label="Search"
-            aria-describedby="search-addon"
-            name="keyword"
-          />
-          <span class="input-group-text border-0" id="search-addon">
-            <i class="fas fa-search"></i>
-          </span>
-        </div>
-        <input type="hidden" name="sort_by" value="source_title" />
-        <button hidden class="btn btn-outline-secondary my-2 my-sm-0" type="submit">
-          <i class="bi bi-search"></i>
-        </button> -->
       </form>
 
       <ul class="nav navbar-nav ml-auto">
         <li class="nav-item" tabindex="1">
-          <a href="/search/all?keyword=" class="nav-link nav-menu" id="explore" tabindex="1"
-            ><strong>Explore</strong></a
+          <a
+            href="/lists"
+            class="nav-link nav-menu nav-menu-lists text-black"
+            id="lists"
+            tabindex="1"
+            ><strong>Lists</strong></a
           >
         </li>
         <li class="nav-item" tabindex="1">
-          <a href="/statistics" class="nav-link nav-menu" id="statistics" tabindex="1"
-            ><strong>Statistics</strong></a
+          <a
+            href="/search/all?keyword="
+            class="nav-link nav-menu nav-menu-search text-black"
+            id="search"
+            tabindex="1"
+            ><strong>Search</strong></a
           >
         </li>
         <li class="nav-item" tabindex="1">
-          <a href="/overview" class="nav-link nav-menu" id="overview" tabindex="1"
-            ><strong>Overview</strong></a
+          <a
+            href="/graphics"
+            class="nav-link nav-menu nav-menu-graphics text-black"
+            id="graphics"
+            tabindex="1"
+            ><strong>Graphics</strong></a
           >
         </li>
       </ul>
-
-      <!-- <form class="form-inline my-4 my-lg-0" action="/search/all">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          name="keyword"
-        />
-        <input type="hidden" name="sort_by" value="source_title" />
-        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form> -->
     </div>
   </div>
 </nav>

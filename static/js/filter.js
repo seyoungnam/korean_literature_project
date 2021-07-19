@@ -1,53 +1,16 @@
-// https://stackoverflow.com/questions/40693232/add-checkbox-values-to-a-link-using-javascript
-// $(document).ready(function () {
-// const cur_url = window.location.href;
-// var apply_button_genre = document.getElementById('genre_filter_apply');
-// var apply_button_author_kr = document.getElementById('author_kr_filter_apply');
-// var apply_button_translator = document.getElementById('translator_filter_apply');
-// var apply_button_year = document.getElementById('year_filter_apply');
-
-// $('#genre_filter').on('change', function () {
-//   apply_button_genre.style.display = 'block';
-//   var values = [];
-//   $('.form-check-input:checked').each(function () {
-//     var result = 'genre=' + $(this).val();
-//     values.push(result);
-//   });
-//   $('.genre_filter_apply').attr('href', cur_url + '&' + values.join('&'));
-// });
-
-// $('#author_kr_filter').on('change', function () {
-//   apply_button_author_kr.style.display = 'block';
-//   var values = [];
-//   $('.form-check-input:checked').each(function () {
-//     var result = 'author_kr=' + $(this).val();
-//     values.push(result);
-//   });
-//   $('.author_kr_filter_apply').attr('href', cur_url + '&' + values.join('&'));
-// });
-
-// $('#translator_filter').on('change', function () {
-//   apply_button_translator.style.display = 'block';
-//   var values = [];
-//   $('.form-check-input:checked').each(function () {
-//     var result = 'translator=' + $(this).val();
-//     values.push(result);
-//   });
-//   $('.translator_filter_apply').attr('href', cur_url + '&' + values.join('&'));
-// });
-
-// $('#year_filter').on('change', function () {
-//   apply_button_year.style.display = 'block';
-//   var values = [];
-//   $('.form-check-input:checked').each(function () {
-//     var result = 'year=' + $(this).val();
-//     values.push(result);
-//   });
-//   $('.year_filter_apply').attr('href', cur_url + '&' + values.join('&'));
-// });
-
 const url = new URL(window.location.href);
 let params = new URLSearchParams(url.search);
+
+console.log(url);
+var lists = document.querySelector('.nav-menu-lists');
+var search = document.querySelector('.nav-menu-search');
+
+if (url.pathname.includes('lists')) {
+  lists.classList.toggle('is-active');
+}
+if (url.pathname.includes('search')) {
+  search.classList.toggle('is-active');
+}
 
 let base_url = new URL(url.protocol + url.host + url.pathname) + '?';
 const genre_cbox = document.querySelectorAll('.genre_filter');
@@ -167,128 +130,3 @@ breadcrumb_genre.addEventListener('click', function (e) {
   );
   location.replace(base_url);
 });
-
-// sort_by
-// const sort_by_button = document.querySelector('#dropdownMenuButton');
-// const sort_by_title = document.getElementById('sort_by_title');
-// const sort_by_sorce = document.getElementById('sort_by_source');
-// const sort_by_author = document.getElementById('sort_by_author');
-// const sort_by_author_kr = document.getElementById('sort_by_author_kr');
-// const sort_by_translator = document.getElementById('sort_by_translator');
-// const sort_by_publisher = document.getElementById('sort_by_publisher');
-// const sort_by_year = document.getElementById('sort_by_year');
-
-// sort_by_button.addEventListener('click', function (e) {
-//   if (params.has('sort_by')) {
-//     params.set('sort_by', 'work_title');
-//     document.getElementById('sort_by_title').href = base_url + params;
-//     params.set('sort_by', 'source_title');
-//     document.getElementById('sort_by_source').setAttribute("href", base_url + params);
-//     params.set('sort_by', 'author');
-//     document.getElementById('sort_by_author').setAttribute("href", base_url + params);
-//     params.set('sort_by', 'author_kr');
-//     document.getElementById('sort_by_author_kr').setAttribute("href", base_url + params);
-//     params.set('sort_by', 'translator');
-//     document.getElementById('sort_by_translator').setAttribute("href", base_url + params);
-//     params.set('sort_by', 'publisher');
-//     document.getElementById('sort_by_publisher').setAttribute("href", base_url + params);
-//     params.set('sort_by', 'year');
-//     document.getElementById('sort_by_year').setAttribute("href", base_url + params);
-//   } else {
-//     document.querySelector('#sort_by_title').href = window.location.href + '&sort_by=work_title';
-//     document.querySelector('#sort_by_source').href = window.location.href + '&sort_by=source_title';
-//     document.querySelector('#sort_by_author').href = window.location.href + '&sort_by=author';
-//     document.querySelector('#sort_by_author_kr').href = window.location.href + '&sort_by=author_kr';
-//     document.querySelector('#sort_by_translator').href = window.location.href + '&sort_by=translator';
-//     document.querySelector('#sort_by_publisher').href = window.location.href + '&sort_by=publisher';
-//     document.querySelector('#sort_by_year').href = window.location.href + '&sort_by=year';
-//   }
-// }
-
-// document.getElementById('sort_by_title').href = url + '&sort_by=work_title';
-// document.getElementById('sort_by_source').href = url + '&sort_by=source_title';
-// document.getElementById('sort_by_author').href = url + '&sort_by=author';
-// document.getElementById('sort_by_author_kr').href = window.location.href + '&sort_by=author_kr';
-// document.getElementById('sort_by_translator').href = window.location.href + '&sort_by=translator';
-// document.getElementById('sort_by_publisher').href = window.location.href + '&sort_by=publisher';
-// document.getElementById('sort_by_year').href = window.location.href + '&sort_by=year';
-
-// sort_by_source.addEventListener('click', function (e) {
-//   if (params.has('sort_by')) {
-//     params.set('sort_by', 'source_title');
-//     location.replace(base_url + params);
-//   } else {
-//     location.replace(window.location.href + '&sort_by=source_title');
-//   }
-// }
-
-// sort_by_author.addEventListener('click', function (e) {
-//   if (params.has('sort_by')) {
-//     params.set('sort_by', 'author');
-//     location.replace(base_url + params);
-//   } else {
-//     location.replace(window.location.href + '&sort_by=author');
-//   }
-// }
-
-// sort_by_author_kr.addEventListener('click', function (e) {
-//   if (params.has('sort_by')) {
-//     params.set('sort_by', 'author_kr');
-//     location.replace(base_url + params);
-//   } else {
-//     location.replace(window.location.href + '&sort_by=author_kr');
-//   }
-// }
-
-// sort_by_translator.addEventListener('click', function (e) {
-//   if (params.has('sort_by')) {
-//     params.set('sort_by', 'translator');
-//     location.replace(base_url + params);
-//   } else {
-//     location.replace(window.location.href + '&sort_by=translator');
-//   }
-// }
-
-// sort_by_publisher.addEventListener('click', function (e) {
-//   if (params.has('sort_by')) {
-//     params.set('sort_by', 'publisher');
-//     location.replace(base_url + params);
-//   } else {
-//     location.replace(window.location.href + '&sort_by=publisher');
-//   }
-// }
-
-// sort_by_year.addEventListener('click', function (e) {
-//   if (params.has('sort_by')) {
-//     params.set('sort_by', 'year');
-//     location.replace(base_url + params);
-//   } else {
-//     location.replace(window.location.href + '&sort_by=year');
-//   }
-// }
-
-// Init link on page load
-// $('.form-check-input').trigger('change');
-// });
-
-// <% for (let i = 0; i < locals.genres.items.length; i++) { %>
-//     console.log('23343');
-//     console.log("<%= genres.items[i] %>")
-// <% } %>
-// var url = window.location.href;
-// var form = document.getElementById('genre_filter');
-
-// var checkBox = document.querySelector('#Fiction');
-// var text = document.getElementById('text');
-// checkBox.addEventListener('change', function (e) {
-//   if (checkBox.checked) {
-//     // total = '';
-//     // for (i = 0; i < document.genre_filter.scripts.length; i++) {
-//     //   if (document.genre_filter.scripts[i].checked) {
-//     //     total += document.genre_filter.scripts[i].value;
-//     //   }
-//     // }
-//   } else {
-//     text.style.display = 'none';
-//   }
-// });

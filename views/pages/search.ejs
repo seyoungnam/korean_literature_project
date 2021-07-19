@@ -28,9 +28,11 @@
           <% if (sort_by) { %> Sort by: <%=sort_by%> <% } else {%> Sort by: None <% } %>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" id="sort_by_title" href="<%= url %>&sort_by=work_title">Title</a>
-          <a class="dropdown-item" id="sort_by_sorce" href="<%= url %>&sort_by=source_title"
-            >Source</a
+          <a class="dropdown-item" id="sort_by_title" href="<%= url %>&sort_by=work_title"
+            >Work Title</a
+          >
+          <a class="dropdown-item" id="sort_by_sorce" href="<%= url %>&sort_by=book_journal_title"
+            >Book/Journal Title</a
           >
           <a class="dropdown-item" id="sort_by_author" href="<%= url %>&sort_by=author">Author</a>
           <a class="dropdown-item" id="sort_by_author_kr" href="<%= url %>&sort_by=author_kr"
@@ -69,16 +71,19 @@
                 data-target="#modal_target_<%=book.id%>"
                 href="#"
               >
-                Title Not Found
+                Work Title Not Available
               </a>
               <% } %>
             </h5>
             <h6 class="text-gray">
-              <i class="bi bi-bookmarks"></i>&nbsp;&nbsp;<%=book.source_title%>
+              <i class="bi bi-bookmarks"></i>&nbsp;&nbsp;<%=book.book_journal_title%>
             </h6>
             <h6 class="text-gray">
               <i class="bi bi-person-circle"></i>&nbsp;&nbsp;<%=book.author%> (
               <a class="text-gray" href="#"> <%=book.author_kr%> </a>)
+            </h6>
+            <h6 class="text-gray">
+              <i class="bi bi-translate"></i>&nbsp;&nbsp;<%=book.translator%>
             </h6>
             <h6 class="text-gray">
               <i class="bi bi-tags"></i>&nbsp;&nbsp;<%=book.genre%> | <%=book.year%>
@@ -114,8 +119,8 @@
                   <dt class="col-sm-4">Author (Korean)</dt>
                   <dd class="col-sm-8"><%=book.author_kr%></dd>
 
-                  <dt class="col-sm-4">Source</dt>
-                  <dd class="col-sm-8"><%=book.source_title%></dd>
+                  <dt class="col-sm-4">Book/Journal Title</dt>
+                  <dd class="col-sm-8"><%=book.book_journal_title%></dd>
 
                   <dt class="col-sm-4">Genre</dt>
                   <dd class="col-sm-8"><%=book.genre%></dd>

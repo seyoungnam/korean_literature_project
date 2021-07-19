@@ -1,0 +1,584 @@
+<div class="container mt-4">
+  <h4 class="mb-3">Lists</h4>
+  <!-- Nav -->
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        id="total-tab"
+        data-toggle="tab"
+        href="#Total"
+        role="tab"
+        aria-controls="total"
+        aria-selected="true"
+        ><b>Total</b></a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="fiction-tab"
+        data-toggle="tab"
+        href="#Fiction"
+        role="tab"
+        aria-controls="fiction"
+        aria-selected="false"
+        ><b>Fiction</b></a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="poem-tab"
+        data-toggle="tab"
+        href="#Poem"
+        role="tab"
+        aria-controls="poem"
+        aria-selected="false"
+        ><b>Poem</b></a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="essay-tab"
+        data-toggle="tab"
+        href="#Essay"
+        role="tab"
+        aria-controls="essay"
+        aria-selected="false"
+        ><b>Essay</b></a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="play-tab"
+        data-toggle="tab"
+        href="#Play"
+        role="tab"
+        aria-controls="play"
+        aria-selected="false"
+        ><b>Play</b></a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="children-tab"
+        data-toggle="tab"
+        href="#Children"
+        role="tab"
+        aria-controls="children"
+        aria-selected="false"
+        ><b>Children</b></a
+      >
+    </li>
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        data-toggle="dropdown"
+        href="#"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+        ><b>Classics</b></a
+      >
+      <div class="dropdown-menu">
+        <a
+          class="dropdown-item"
+          id="classic-poem-tab"
+          data-toggle="tab"
+          href="#Classic_Poem"
+          role="tab"
+          aria-controls="classic-poem"
+          aria-selected="false"
+          ><b>Poem</b></a
+        >
+        <a
+          class="dropdown-item"
+          id="classic-fiction-tab"
+          data-toggle="tab"
+          href="#Classic_Fiction"
+          role="tab"
+          aria-controls="classic-fiction"
+          aria-selected="false"
+          ><b>Fiction</b></a
+        >
+        <a
+          class="dropdown-item"
+          id="classic-folktale-tab"
+          data-toggle="tab"
+          href="#Classic_FolkTale"
+          role="tab"
+          aria-controls="classic-folktale"
+          aria-selected="false"
+          ><b>Folk Tale</b></a
+        >
+        <a
+          class="dropdown-item"
+          id="classic-history-tab"
+          data-toggle="tab"
+          href="#Classic_History"
+          role="tab"
+          aria-controls="classic-history"
+          aria-selected="false"
+          ><b>History</b></a
+        >
+        <a
+          class="dropdown-item"
+          id="classic-general-tab"
+          data-toggle="tab"
+          href="#Classic_General"
+          role="tab"
+          aria-controls="classic-general"
+          aria-selected="false"
+          ><b>General</b></a
+        >
+      </div>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="misc-tab"
+        data-toggle="tab"
+        href="#Miscellaneous"
+        role="tab"
+        aria-controls="misc"
+        aria-selected="false"
+        ><b>Miscellaneous</b></a
+      >
+    </li>
+  </ul>
+  <!-- Nav end -->
+  <div class="tab-content bg-white py-5" id="myTabContent">
+    <!-- Total table -->
+    <div class="tab-pane fade show active" id="Total" role="tabpanel" aria-labelledby="total-tab">
+      <table class="table table-hover">
+        <thead class="skypurple">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author(Korean)</th>
+            <th scope="col">Author</th>
+            <th scope="col">Work Title</th>
+            <th scope="col">Translator</th>
+            <th scope="col">Book/Journal Title</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% books.forEach( (book) => {%>
+          <tr>
+            <th scope="row"><%= book.id %></th>
+            <td><%= book.genre %></td>
+            <td><%= book.author_kr %></td>
+            <td><%= book.author %></td>
+            <td><%= book.work_title %></td>
+            <td><%= book.translator %></td>
+            <td><%= book.book_journal_title %></td>
+            <td><%= book.publisher %></td>
+            <td><%= book.year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Total table end -->
+    <!-- Fiction table -->
+    <div class="tab-pane bg-white fade" id="Fiction" role="tabpanel" aria-labelledby="fiction-tab">
+      <table class="table table-hover">
+        <thead class="skypurple">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author(Korean)</th>
+            <th scope="col">Author</th>
+            <th scope="col">Work Title</th>
+            <th scope="col">Translator</th>
+            <th scope="col">Book/Journal Title</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% books.forEach( (book) => {%>
+          <tr>
+            <th scope="row"><%= book.id %></th>
+            <td><%= book.genre %></td>
+            <td><%= book.author_kr %></td>
+            <td><%= book.author %></td>
+            <td><%= book.work_title %></td>
+            <td><%= book.translator %></td>
+            <td><%= book.book_journal_title %></td>
+            <td><%= book.publisher %></td>
+            <td><%= book.year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Fiction table end -->
+    <!-- Poem table -->
+    <div class="tab-pane fade" id="Poem" role="tabpanel" aria-labelledby="poem-tab">
+      <table class="table table-hover">
+        <thead class="skypurple">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author(Korean)</th>
+            <th scope="col">Author</th>
+            <th scope="col">Work Title</th>
+            <th scope="col">Translator</th>
+            <th scope="col">Book/Journal Title</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% books.forEach( (book) => {%>
+          <tr>
+            <th scope="row"><%= book.id %></th>
+            <td><%= book.genre %></td>
+            <td><%= book.author_kr %></td>
+            <td><%= book.author %></td>
+            <td><%= book.work_title %></td>
+            <td><%= book.translator %></td>
+            <td><%= book.book_journal_title %></td>
+            <td><%= book.publisher %></td>
+            <td><%= book.year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Poem table end -->
+    <!-- Essay table -->
+    <div class="tab-pane fade" id="Essay" role="tabpanel" aria-labelledby="essay-tab">
+      <table class="table table-hover">
+        <thead class="skypurple">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author(Korean)</th>
+            <th scope="col">Author</th>
+            <th scope="col">Work Title</th>
+            <th scope="col">Translator</th>
+            <th scope="col">Book/Journal Title</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% books.forEach( (book) => {%>
+          <tr>
+            <th scope="row"><%= book.id %></th>
+            <td><%= book.genre %></td>
+            <td><%= book.author_kr %></td>
+            <td><%= book.author %></td>
+            <td><%= book.work_title %></td>
+            <td><%= book.translator %></td>
+            <td><%= book.book_journal_title %></td>
+            <td><%= book.publisher %></td>
+            <td><%= book.year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Essay table end -->
+    <!-- Play table -->
+    <div class="tab-pane fade" id="Play" role="tabpanel" aria-labelledby="play-tab">
+      <table class="table table-hover">
+        <thead class="skypurple">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author(Korean)</th>
+            <th scope="col">Author</th>
+            <th scope="col">Work Title</th>
+            <th scope="col">Translator</th>
+            <th scope="col">Book/Journal Title</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% books.forEach( (book) => {%>
+          <tr>
+            <th scope="row"><%= book.id %></th>
+            <td><%= book.genre %></td>
+            <td><%= book.author_kr %></td>
+            <td><%= book.author %></td>
+            <td><%= book.work_title %></td>
+            <td><%= book.translator %></td>
+            <td><%= book.book_journal_title %></td>
+            <td><%= book.publisher %></td>
+            <td><%= book.year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Play table end -->
+    <!-- Children table -->
+    <div class="tab-pane fade" id="Children" role="tabpanel" aria-labelledby="children-tab">
+      <table class="table table-hover">
+        <thead class="skypurple">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author(Korean)</th>
+            <th scope="col">Author</th>
+            <th scope="col">Work Title</th>
+            <th scope="col">Translator</th>
+            <th scope="col">Book/Journal Title</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% books.forEach( (book) => {%>
+          <tr>
+            <th scope="row"><%= book.id %></th>
+            <td><%= book.genre %></td>
+            <td><%= book.author_kr %></td>
+            <td><%= book.author %></td>
+            <td><%= book.work_title %></td>
+            <td><%= book.translator %></td>
+            <td><%= book.book_journal_title %></td>
+            <td><%= book.publisher %></td>
+            <td><%= book.year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Children table end -->
+    <!-- Classic General table -->
+    <div
+      class="tab-pane fade"
+      id="Classic_General"
+      role="tabpanel"
+      aria-labelledby="classic-general-tab"
+    >
+      <table class="table table-hover">
+        <thead class="skypurple">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author(Korean)</th>
+            <th scope="col">Author</th>
+            <th scope="col">Work Title</th>
+            <th scope="col">Translator</th>
+            <th scope="col">Book/Journal Title</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% books.forEach( (book) => {%>
+          <tr>
+            <th scope="row"><%= book.id %></th>
+            <td><%= book.genre %></td>
+            <td><%= book.author_kr %></td>
+            <td><%= book.author %></td>
+            <td><%= book.work_title %></td>
+            <td><%= book.translator %></td>
+            <td><%= book.book_journal_title %></td>
+            <td><%= book.publisher %></td>
+            <td><%= book.year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Classic General table end -->
+    <!-- Classic Poem table -->
+    <div class="tab-pane fade" id="Classic_Poem" role="tabpanel" aria-labelledby="classic-poem-tab">
+      <table class="table table-hover">
+        <thead class="skypurple">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author(Korean)</th>
+            <th scope="col">Author</th>
+            <th scope="col">Work Title</th>
+            <th scope="col">Translator</th>
+            <th scope="col">Book/Journal Title</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% books.forEach( (book) => {%>
+          <tr>
+            <th scope="row"><%= book.id %></th>
+            <td><%= book.genre %></td>
+            <td><%= book.author_kr %></td>
+            <td><%= book.author %></td>
+            <td><%= book.work_title %></td>
+            <td><%= book.translator %></td>
+            <td><%= book.book_journal_title %></td>
+            <td><%= book.publisher %></td>
+            <td><%= book.year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Classic Poem table end -->
+    <!-- Classic History table -->
+    <div
+      class="tab-pane fade"
+      id="Classic_History"
+      role="tabpanel"
+      aria-labelledby="classic-history-tab"
+    >
+      <table class="table table-hover">
+        <thead class="skypurple">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author(Korean)</th>
+            <th scope="col">Author</th>
+            <th scope="col">Work Title</th>
+            <th scope="col">Translator</th>
+            <th scope="col">Book/Journal Title</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% books.forEach( (book) => {%>
+          <tr>
+            <th scope="row"><%= book.id %></th>
+            <td><%= book.genre %></td>
+            <td><%= book.author_kr %></td>
+            <td><%= book.author %></td>
+            <td><%= book.work_title %></td>
+            <td><%= book.translator %></td>
+            <td><%= book.book_journal_title %></td>
+            <td><%= book.publisher %></td>
+            <td><%= book.year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Classic History table end -->
+    <!-- Classic Folk Tale table -->
+    <div
+      class="tab-pane fade"
+      id="Classic_FolkTale"
+      role="tabpanel"
+      aria-labelledby="classic-folktale-tab"
+    >
+      <table class="table table-hover">
+        <thead class="skypurple">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author(Korean)</th>
+            <th scope="col">Author</th>
+            <th scope="col">Work Title</th>
+            <th scope="col">Translator</th>
+            <th scope="col">Book/Journal Title</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% books.forEach( (book) => {%>
+          <tr>
+            <th scope="row"><%= book.id %></th>
+            <td><%= book.genre %></td>
+            <td><%= book.author_kr %></td>
+            <td><%= book.author %></td>
+            <td><%= book.work_title %></td>
+            <td><%= book.translator %></td>
+            <td><%= book.book_journal_title %></td>
+            <td><%= book.publisher %></td>
+            <td><%= book.year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Classic Folk Tale table end -->
+    <!-- Classic Fiction table -->
+    <div
+      class="tab-pane fade"
+      id="Classic_Fiction"
+      role="tabpanel"
+      aria-labelledby="classic-fiction-tab"
+    >
+      <table class="table table-hover">
+        <thead class="skypurple">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author(Korean)</th>
+            <th scope="col">Author</th>
+            <th scope="col">Work Title</th>
+            <th scope="col">Translator</th>
+            <th scope="col">Book/Journal Title</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% books.forEach( (book) => {%>
+          <tr>
+            <th scope="row"><%= book.id %></th>
+            <td><%= book.genre %></td>
+            <td><%= book.author_kr %></td>
+            <td><%= book.author %></td>
+            <td><%= book.work_title %></td>
+            <td><%= book.translator %></td>
+            <td><%= book.book_journal_title %></td>
+            <td><%= book.publisher %></td>
+            <td><%= book.year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Classic Fiction table end -->
+    <!-- Misc table -->
+    <div class="tab-pane fade" id="Miscellaneous" role="tabpanel" aria-labelledby="misc-tab">
+      <table class="table table-hover">
+        <thead class="skypurple">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author(Korean)</th>
+            <th scope="col">Author</th>
+            <th scope="col">Work Title</th>
+            <th scope="col">Translator</th>
+            <th scope="col">Book/Journal Title</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% books.forEach( (book) => {%>
+          <tr>
+            <th scope="row"><%= book.id %></th>
+            <td><%= book.genre %></td>
+            <td><%= book.author_kr %></td>
+            <td><%= book.author %></td>
+            <td><%= book.work_title %></td>
+            <td><%= book.translator %></td>
+            <td><%= book.book_journal_title %></td>
+            <td><%= book.publisher %></td>
+            <td><%= book.year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Misc table end -->
+  </div>
+</div>
